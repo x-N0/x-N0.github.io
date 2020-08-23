@@ -43,7 +43,15 @@ export default {
   /*
    ** Nuxt.js dev-modules
    */
-  buildModules: ['@nuxt/typescript-build'],
+  buildModules: [
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
+  ],
+  tailwindcss: {
+    configPath: 'tailwind.config.js',
+    exposeConfig: false,
+  },
   /*
    ** Nuxt.js modules
    */
