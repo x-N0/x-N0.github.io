@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white dark:bg-black sepia:bg-orange-200">
     <Nuxt />
   </div>
 </template>
@@ -16,7 +16,9 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
+[class^='bg-'] {
+  transition: background-color 0.3s;
+}
 *,
 *::before,
 *::after {
