@@ -1,36 +1,33 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        x-n0.github.io
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <indexHeader></indexHeader>
+    <about-me></about-me>
+    <show-case></show-case>
+    <my-services></my-services>
+    <contact-me></contact-me>
+    <project-viewer :advanced-mode="false"></project-viewer>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import indexHeader from '~/components/pages/index/indexHeader.vue'
+import AboutMe from '~/components/pages/index/AboutMe.vue'
+import ShowCase from '~/components/pages/index/showCase.vue'
+import ContactMe from '~/components/pages/index/contactMe.vue'
+import MyServices from '~/components/pages/index/myServices.vue'
+import ProjectViewer from '~/components/misc/ProjectViewer.vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  components: {
+    MyServices,
+    ContactMe,
+    ShowCase,
+    AboutMe,
+    indexHeader,
+    ProjectViewer,
+  },
+})
 </script>
 
 <style>
@@ -48,7 +45,6 @@ export default Vue.extend({})
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
-  font-size: 100px;
   color: #35495e;
   letter-spacing: 1px;
 }
