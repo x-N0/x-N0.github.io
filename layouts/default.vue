@@ -1,6 +1,9 @@
 <template>
-  <div class="bg-white dark:bg-black sepia:bg-orange-200">
-    <Nuxt />
+  <div class="bg-white dark:bg-gray-800">
+    <Navbar class="hidden"></Navbar>
+    <div class="wrapper mx-auto">
+      <Nuxt />
+    </div>
   </div>
 </template>
 
@@ -55,3 +58,9 @@ html {
   background-color: #35495e;
 }
 </style>
+<script>
+import Navbar from '../components/misc/Navbar'
+export default {
+  components: { Navbar },
+}
+</script>
