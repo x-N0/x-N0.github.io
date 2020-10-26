@@ -2,10 +2,12 @@
   <div>
     <indexHeader></indexHeader>
     <about-me></about-me>
+    <TrustedBy></TrustedBy>
     <show-case></show-case>
-    <my-services></my-services>
-    <contact-me></contact-me>
-    <project-viewer :advanced-mode="false"></project-viewer>
+    <TimelineMidStraight></TimelineMidStraight>
+<!--    <my-services></my-services>-->
+<!--    <contact-me></contact-me>-->
+<!--    <project-viewer :advanced-mode="false"></project-viewer>-->
   </div>
 </template>
 
@@ -17,9 +19,12 @@ import ShowCase from '~/components/pages/index/showCase.vue'
 import ContactMe from '~/components/pages/index/contactMe.vue'
 import MyServices from '~/components/pages/index/myServices.vue'
 import ProjectViewer from '~/components/misc/ProjectViewer.vue'
-
+import TrustedBy from '~/components/pages/index/TrustedBy.vue'
+import TimelineMidStraight from '~/components/pages/index/TimelineMidStraight.vue'
 export default Vue.extend({
   components: {
+    TimelineMidStraight,
+    TrustedBy,
     MyServices,
     ContactMe,
     ShowCase,
