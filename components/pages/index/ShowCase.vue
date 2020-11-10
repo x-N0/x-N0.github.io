@@ -24,17 +24,11 @@
     </div>
     <div class="showoff flex flex-col w-full items-center min-h-screen">
       <div class="bigwrapper flex flex-row flex-wrap justify-center">
-        <div class="w-1/2 h-screen justify-center self-center flex flex-row">
-          <VueSlickCarousel v-bind="slickOptions">
-            <div v-for="i in 5" :key="i" class="img-wrapper">
-              <img :src="`./${i}-200x100.jpg`" alt="" />
-            </div>
-          </VueSlickCarousel>
-        </div>
         <CardCarousel v-for="(i, x) in biggies" :key="x"></CardCarousel>
       </div>
+      <img :src="require('~/assets/test_num_one/1.png')" alt="" />
       <div
-        class="short-wrapper hidden flex flex-wrap flex-row justify-center mx-auto mb-5"
+        class="sawhort-wrapper hidden flex flex-wrap flex-row justify-center mx-auto mb-5"
       >
         <cardPizzaBox v-for="(i, x) in tinys" :key="x"></cardPizzaBox>
       </div>
@@ -47,35 +41,54 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
+// import JSONdata from 'static/Showcase/Projects/test_num_one/data'
+import showoffCarousel from '@/mixins/showoffCarousel.ts'
+import { Component, mixins } from 'nuxt-property-decorator'
 import CardCarousel from './atoms/CardCarousel.vue'
 import CardPizzaBox from './atoms/CardPizzaBox.vue'
-export default {
-  name: 'ShowCase',
+
+// TODO: Gather the data.js files and send objects to cardCarousel and ProjectViewer.
+
+@Component({
   components: {
     CardCarousel,
     CardPizzaBox,
   },
-  data() {
-    return {
-      fakeArr: [...Array(2).keys()],
-      slickOptions: {
-        slidesToShow: 3,
-        arrows: false,
-        // slidesToScroll: 1,
-      },
-    }
-  },
-  computed: {
-    tinys() {
-      return this.$data.fakeArr
-    },
-    biggies() {
-      const percentage = 0.7
-      const arrLen = this.$data.fakeArr.length
-      return this.$data.fakeArr.splice(0, arrLen * percentage)
-    },
-  },
+})
+export default class ShowCase extends mixins(showoffCarousel) {
+  name: string = 'ShowCase'
+
+  fakeArr: Array<number> = [...Array(2).keys()]
+
+  imagesFromFolder(assetFolder: string) {
+    return require.context(
+      `@/assets/${assetFolder}`,
+      true,
+      /\.(png|jpg|jpeg|svg|)$/i
+    )
+  }
+
+  datas: string[] = this.printFolders
+  get printFolders() {
+    return require
+      .context('@/assets/', true, /data.js$/)
+      .keys()
+      .map((each) => each.split('/')[1])
+  }
+
+  get tinys() {
+    return this.$data.fakeArr
+  }
+
+  get biggies() {
+    const percentage = 0.7
+    const arrLen = this.$data.fakeArr.length
+    return this.$data.fakeArr.splice(0, arrLen * percentage)
+  }
 }
 </script>
 
