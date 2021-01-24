@@ -5,9 +5,9 @@
     <TrustedBy></TrustedBy>
     <show-case></show-case>
     <TimelineMidStraight></TimelineMidStraight>
-<!--    <my-services></my-services>-->
-<!--    <contact-me></contact-me>-->
-<!--    <project-viewer :advanced-mode="false"></project-viewer>-->
+    <!--    <my-services></my-services>-->
+    <!--    <contact-me></contact-me>-->
+    <!--    <project-viewer :advanced-mode="false"></project-viewer>-->
   </div>
 </template>
 
@@ -15,7 +15,7 @@
 import Vue from 'vue'
 import indexHeader from '~/components/pages/index/indexHeader.vue'
 import AboutMe from '~/components/pages/index/AboutMe.vue'
-import ShowCase from '~/components/pages/index/showCase.vue'
+import ShowCase from '~/components/pages/index/ShowCase.vue'
 import ContactMe from '~/components/pages/index/contactMe.vue'
 import MyServices from '~/components/pages/index/myServices.vue'
 import ProjectViewer from '~/components/misc/ProjectViewer.vue'

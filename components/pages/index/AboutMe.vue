@@ -7,7 +7,7 @@
         <!-- .title.mr-auto>img.object-cover.w-full+span.text-3xl.self-end^.info>span{} -->
         <div class="title_wrap flex flex-col justify-center md:mr-10 w-1/3">
           <img
-            src="justaresource"
+            src="#"
             class="title_bg relative object-cover"
             alt
           />
