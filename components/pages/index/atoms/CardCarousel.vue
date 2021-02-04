@@ -1,6 +1,6 @@
 <template>
-  <div
-    class="group Showoff big-card flex flex-col bg-gray-300 aniimate-pulse justify-between w-64 h-64 rounded-lg mx-5 mb-10 hover:bg-gray-200"
+  <div v-bind:class="{ 'animate-pulse':dataObject}"
+    class="group Showoff big-card flex flex-col bg-gray-300 justify-between w-64 h-64 rounded-lg mx-5 mb-10 hover:bg-gray-200"
   >
     <!--    <span-->
     <!--      class="text-gray-500 text-xl text-center -mt-6 opacity-0 group-hover:opacity-100"-->
@@ -21,23 +21,29 @@
     <!--          />-->
     <!--        </svg>-->
     <!--      </button>  Integrate values from Static projects in showcase to import values -->
+
+
+
     <VueSlickCarousel
       class="max-h-full max-w-full flex flex-col self-center justify-center"
       v-bind="slickOptions"
     >
       <div
-        v-for="i in 3"
+        v-for="(x,i) in dataObject.media"
         :key="i"
         class="img-wrapper content-center h-64 w-full"
       >
         <img
-          :src="`./Showcase/Projects/test_num_one/${i}.png`"
+          :src="require(`@/assets/projects/${x}`)"
           class="object-contain not-selectable m-auto h-64 w-full"
           alt=""
           :ondragstart="`return false`"
         />
       </div>
     </VueSlickCarousel>
+
+
+
     <!--      <button class="rounded-full bg-gray-200">-->
     <!--        <svg-->
     <!--          class="fill-current opacity-75 h-4 w-4"-->
@@ -81,12 +87,13 @@ import { Vue, Component, Prop } from 'nuxt-property-decorator'
 export default class CardCarousel extends Vue {
   @Prop({
     default() {
-      return {
-      } //Arr of 1 value.
+      return {} // Arr of 1 value.
     },
     required: true,
   })
-  private data!: object
+  private dataObject!: object
+  //Render variables
+  // private media:string[]=this.dataObject.media
 
   slickOptions: Object = {
     slidesToShow: 1,
@@ -109,7 +116,7 @@ export default class CardCarousel extends Vue {
   max-height: 100%;
 }
 .not-selectable {
-  user-drag: none;
+  /* user-drag: none; */
   user-select: none;
   -moz-user-select: none;
   -webkit-user-drag: none;
