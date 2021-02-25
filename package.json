@@ -11,7 +11,8 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^1.0.0",
+    "@nuxt/content": "^1.11.1",
+    "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/axios": "^5.12.0",
     "nuxt": "^2.14.0",
     "nuxt-property-decorator": "^2.8.8",
