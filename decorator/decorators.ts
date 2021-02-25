@@ -1,7 +1,7 @@
 import { createDecorator } from 'vue-class-component'
-export const Log = createDecorator((options, key) => {
+export const Log = createDecorator((options:any, key) => {
   const originalMethod = options.methods[key]
-  options.methods[key] = function wrapperMethod(...args) {
+  options.methods[key] = function wrapperMethod([...args]) {
     // logging
     console.log(`Log: ${key}(`, ...args, ')')
     originalMethod.apply(this, args)
