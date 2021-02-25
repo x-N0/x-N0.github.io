@@ -1,5 +1,6 @@
 {
   "name": "Project XXX",
   "description": "This is a test project3.",
-  "media": ["test_num_one/1.png","test_num_one/2.png"]
+  "media": ["test_num_one/1.png","test_num_one/2.png"],
+  "url":""
 }
