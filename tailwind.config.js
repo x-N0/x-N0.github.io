@@ -4,9 +4,33 @@ module.exports = {
   theme: {
     darkSelector: '.dark-mode',
     sepiaSelector: '.sepia-mode',
-  },
-  future: {
-    removeDeprecatedGapUtilities: true,
+    extend: {
+      colors: {
+        'verde-100': '#008f68',
+        'verde-200': '#6DB65B',
+        'verde-300': '#4AAE9B',
+        'amarelo-100': '#FAE042',
+        'amarelo-200': '#EFBB35',
+        'amarelo-300': '#DFA612',
+        white: '#FAFAFA',
+        'white-100': '#eeeeee',
+        'gray-1000': '555555',
+      },
+      minHeight: {
+        0: '0',
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+        full: '100%',
+      },
+      maxHeight: {
+        0: '0',
+        '1/4': '25%',
+        '1/2': '50%',
+        '3/4': '75%',
+        full: '100%',
+      },
+    },
   },
   // variants: {
   //   backgroundColor: [
