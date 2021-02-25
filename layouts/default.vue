@@ -7,6 +7,13 @@
   </div>
 </template>
 
+<script>
+import { Vue } from 'nuxt-property-decorator'
+import Navbar from '../components/misc/Navbar'
+export default Vue.extend({
+  components: { Navbar },
+})
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -58,9 +65,3 @@ html {
   background-color: #35495e;
 }
 </style>
-<script>
-import Navbar from '../components/misc/Navbar'
-export default {
-  components: { Navbar },
-}
-</script>
