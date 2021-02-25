@@ -88,3 +88,9 @@ sw.*
 
 # Vim swap files
 *.swp
+/assets/scss/
+/assets/_themes.scss
+/components/pages/index/projectViewer.txt
+/TODO.md
+/yarn.lock
+/static/spritesheet-min.png
