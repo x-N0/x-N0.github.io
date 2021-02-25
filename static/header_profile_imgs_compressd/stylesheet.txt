@@ -1,0 +1,28 @@
+.sprite {
+    background-image: url(static/header_profile_imgs_compressd/spritesheet-min.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-bowl-min {
+    width: 2921px;
+    height: 3267px;
+    background-position: -5px -5px;
+}
+
+    width: 371px;
+    height: 1181px;
+    background-position: -2936px -5px;
+}
+
+.sprite-mask-min {
+    width: 1112px;
+    height: 972px;
+    background-position: -2936px -1196px;
+}
+
+.sprite-subject-min {
+    width: 2424px;
+    height: 3384px;
+    background-position: -4058px -5px;
+}
