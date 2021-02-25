@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="{ 'animate-pulse':dataObject}"
+  <div v-bind:class="{ 'animate-pulse': !isDataLoaded}"
     class="group Showoff big-card flex flex-col bg-gray-300 justify-between w-64 h-64 rounded-lg mx-5 mb-10 hover:bg-gray-200"
   >
     <!--    <span-->
@@ -81,17 +81,20 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'nuxt-property-decorator'
+interface IDataObject{
+  media:[]
+}
 @Component({
   components: {},
 })
 export default class CardCarousel extends Vue {
   @Prop({
     default() {
-      return {} // Arr of 1 value.
+      return {media:[]} // Arr of 1 value.
     },
     required: true,
   })
-  private dataObject!: object
+  private dataObject!: IDataObject
   //Render variables
   // private media:string[]=this.dataObject.media
 
@@ -100,7 +103,12 @@ export default class CardCarousel extends Vue {
     arrows: true,
     // slidesToScroll: 1,
   }
+  
+  get isDataLoaded(){
+  return this.dataObject.media?true:false
 }
+}
+
 </script>
 
 <style scoped>

@@ -6,11 +6,7 @@
       >
         <!-- .title.mr-auto>img.object-cover.w-full+span.text-3xl.self-end^.info>span{} -->
         <div class="title_wrap flex flex-col justify-center md:mr-10 w-1/3">
-          <img
-            src="#"
-            class="title_bg relative object-cover"
-            alt
-          />
+          <img src="#" class="title_bg relative object-cover" alt />
           <h1
             class="title_about line text-center text absolute self-center align-middle inline-block lg:text-5xl text-4xl font-bold"
           >

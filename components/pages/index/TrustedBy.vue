@@ -25,35 +25,35 @@
           <img
             class="w-full"
             src="https://stripe.com/img/v3/payments/overview/logos/kickstarter.svg"
-            style="max-height: 60px;"
+            style="max-height: 60px"
           />
         </button>
         <button class="w-1/3 opacity-50 hover:opacity-100 focus:opacity-100">
           <img
             class="w-full"
             src="https://stripe.com/img/v3/payments/overview/logos/slack.svg"
-            style="max-height: 60px;"
+            style="max-height: 60px"
           />
         </button>
         <button class="w-1/3 opacity-50 hover:opacity-100 focus:opacity-100">
           <img
             class="w-full"
             src="https://stripe.com/img/v3/payments/overview/logos/glossier.svg"
-            style="max-height: 60px;"
+            style="max-height: 60px"
           />
         </button>
         <button class="w-1/3 opacity-50 hover:opacity-100 focus:opacity-100">
           <img
             class="w-full"
             src="https://stripe.com/img/v3/payments/overview/logos/charity_water.svg"
-            style="max-height: 60px;"
+            style="max-height: 60px"
           />
         </button>
         <button class="w-1/3 opacity-50 hover:opacity-100 focus:opacity-100">
           <img
             class="w-full"
             src="https://stripe.com/img/v3/payments/overview/logos/missguided.svg"
-            style="max-height: 60px;"
+            style="max-height: 60px"
           />
         </button>
         <button
@@ -61,13 +61,12 @@
           @click="
             'mailto:robinsonchaplain@gmail.com'
 
-
           "
         >
           <img
             class="toFullOpacity w-1/2 mx-auto rounded-lg border border-blue-300 border-opacity-0 bg-gradient-to-t from-orange-400 via-red-500 to-pink-500 group-hover:border-opacity-75"
             src="\svg\PlusIcon.svg"
-            style="max-height: 60px;"
+            style="max-height: 60px"
           />
         </button>
       </div>
@@ -90,7 +89,7 @@ export default {
 }
 </script>
 <style>
-.img{
+.img {
   height: 50vh;
 }
 .addNew {
