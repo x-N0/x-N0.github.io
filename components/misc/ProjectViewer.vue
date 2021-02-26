@@ -3,6 +3,11 @@
     class="flex flex-col justify-center fixed inset-0 w-full max-h-full bg-opacity-50 bg-black"
     v-if="isViewerOpen"
   >
+    <style v-if="isViewerOpen">
+    *{
+    overflow-y:hidden !important;
+    }
+  </style>
     <div
       class="viewer flex flex-col lg:min-h-3/4 lg:flex-row items-center rounded-2xl self-center w-8/12 lg:w-11/12 bg-white-100 shadow-2xl"
     >
