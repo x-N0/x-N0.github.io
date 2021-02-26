@@ -44,6 +44,7 @@
       </button>
       <p class="text-sm text-center font-sans font-semibold text-gray-600 mb-10 mx-10">Expect more to come, right now I'm developing Artificial Intelligence >)</p>
     </div>
+    <project-viewer :singleProject="onProject" :isViewerOpen="true"></project-viewer>
   </div>
 </template>
 
@@ -56,14 +57,14 @@ import consoleMixin from '@/mixins/console.ts'
 import { Component, mixins, Prop } from 'nuxt-property-decorator'
 import CardCarousel from './atoms/CardCarousel.vue'
 import CardPizzaBox from './atoms/CardPizzaBox.vue'
+import ProjectViewer from '~/components/misc/ProjectViewer.vue'
 
 @Component({
   components: {
     CardCarousel,
     CardPizzaBox,
+    ProjectViewer,
   },
-
-
 })
 export default class ShowCase extends mixins(showoffCarousel, consoleMixin) {
   @Prop(
@@ -76,6 +77,14 @@ export default class ShowCase extends mixins(showoffCarousel, consoleMixin) {
 ]}
   )
   private projectsArray!: object[]
+
+  private onProject:Object=this.projectsArray[0]
+
+
+
+
+
+  
   private projectsArrayCopy:object[]=this.projectsArray
   name: string = 'ShowCase'
   get tinys() {
