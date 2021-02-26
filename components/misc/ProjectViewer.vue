@@ -13,6 +13,11 @@
         </button>
         <div class="bg-white-100 my-auto mx-auto lg:min-h-3/4 min-h-1/2 h-64 w-full lg:w-11/12 rounded-2xl shadow-lg">
           <!-- <img class="h-full w-full object-cover rounded-2xl" src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg"> -->
+        <CardCarousel
+          v-for="(projectObject, x) in this.projectsArray"
+          :key="x"
+          :dataObject="projectObject"
+        ></CardCarousel>
         </div>
       </div>
       <div class="w-full h-full overflow-y-auto overflow-x-hidden max-h-80 lg:w-8/12">
@@ -39,57 +44,87 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'ProjectViewer',
-  props: {
-    projectObj: {
-      type: Object,
-      default() {
-        return {
-          name: 'Project X',
-          description: 'Just a large lorem, imagine this.',
-          lovers: 200,
-          details: {
-            Virtualization: 'Docker',
-            Backend: 'Django',
-            Server: 'Uvicorn',
-          },
-          commits: {
-            '000': 'Add(thisProject): Experimental Commit Feature.',
-            '001': 'Add(thisProject): More than a fancy thing.',
-            '002': 'Add(thisProject): More than a fancy thing.',
-            '003': 'Add(thisProject): More than a fancy thing.',
-          },
-          demoUrl: 'www.myorg/iedemo',
-          repoUrl: 'https://github.com/username/eirepo',
-          images: [
-            'https://picsum.photos/300/300',
-            'https://picsum.photos/300/300',
-            'https://picsum.photos/300/300',
-            'https://picsum.photos/300/300',
-            'https://picsum.photos/300/300',
-            'https://picsum.photos/300/300',
-          ],
-        }
-      },
-      required: false,
-    },
-    inAdvancedMode: {
-      type: Boolean,
-      default: false,
-    },
-  }, data(){
-    return {
-      isViewerOpen:true
-    }
-  },
-  computed: {
-    tech() {
-      return this.projectObj.details.values
-    },
-  },
+<script lang="ts">
+import { Component, mixins, Prop, Vue } from 'nuxt-property-decorator';
+import CardCarousel from '../pages/index/atoms/CardCarousel.vue';
+
+@Component({
+  components:{ CardCarousel }
+})
+export default class ProjectViewer extends Vue{
+
+@Prop({
+  type:Object,
+  required:true,
+})
+private singleProject!:Object
+@Prop({
+  type:Boolean,
+  required:false,
+  default: false
+})
+private isAdvancedMode!:Boolean
+//p = Project
+//Basic data.
+pName!:string
+pDate!:Date
+pDescription!:string
+pMedia!:string[]
+pUrl!:string
 }
+// export default {
+//   name: 'ProjectViewer',
+//   components:{
+//     CardCarousel
+//   },
+//   props: {
+//     projectObj: {
+//       type: Object,
+//       default() {
+//         return {
+//           name: 'Project X',
+//           description: 'Just a large lorem, imagine this.',
+//           lovers: 200,
+//           details: {
+//             Virtualization: 'Docker',
+//             Backend: 'Django',
+//             Server: 'Uvicorn',
+//           },
+//           commits: {
+//             '000': 'Add(thisProject): Experimental Commit Feature.',
+//             '001': 'Add(thisProject): More than a fancy thing.',
+//             '002': 'Add(thisProject): More than a fancy thing.',
+//             '003': 'Add(thisProject): More than a fancy thing.',
+//           },
+//           demoUrl: 'www.myorg/iedemo',
+//           repoUrl: 'https://github.com/username/eirepo',
+//           images: [
+//             'https://picsum.photos/300/300',
+//             'https://picsum.photos/300/300',
+//             'https://picsum.photos/300/300',
+//             'https://picsum.photos/300/300',
+//             'https://picsum.photos/300/300',
+//             'https://picsum.photos/300/300',
+//           ],
+//         }
+//       },
+//       required: false,
+//     },
+//     inAdvancedMode: {
+//       type: Boolean,
+//       default: false,
+//     },
+//   }, data(){
+//     return {
+//       isViewerOpen:true
+//     }
+//   },
+//   computed: {
+//     tech() {
+//       return this.projectObj.details.values
+//     },
+//   },
+//}
 </script>
 
 <style scoped>
