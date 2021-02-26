@@ -28,7 +28,6 @@ export default Vue.extend({
     ShowCase,
     AboutMe,
     indexHeader,
-    ProjectViewer,
   },
   async asyncData({ $content, params }: any) {
     const projectsData = await $content('projects', params.slug)
