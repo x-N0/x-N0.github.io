@@ -25,12 +25,14 @@
       <!-- <pre>{{ projectsArray }}</pre> -->
     </div>
     <div class="showoff flex flex-col w-full items-center">
-      <div class="bigwrapper flex flex-row flex-wrap justify-center">
-        <CardCarousel
-          v-for="(projectObject, x) in this.projectsArray"
+      <div class="bigwrapper flex flex-row flex-wrap justify-center" @click="isViewerOpen(true)">
+        <div class="carrouselwrap" v-for="(projectObject, x) in this.projectsArray"
           :key="x"
+        >
+        <CardCarousel
           :dataObject="projectObject"
         ></CardCarousel>
+        </div>
       </div>
       <!-- <div
         class="sawhort-wrapper hidden flex flex-wrap flex-row justify-center mx-auto mb-5"
@@ -43,8 +45,9 @@
         Show More
       </button>
       <p class="text-sm text-center font-sans font-semibold text-gray-600 mb-10 mx-10">Expect more to come, right now I'm developing Artificial Intelligence >)</p>
+      <pre>{{this.projectsArray[0]}}</pre>
     </div>
-    <project-viewer :singleProject="onProject" :isViewerOpen="true"></project-viewer>
+    <project-viewer :singleProject="onProject" :isViewerOpen="this.viewerStatus"></project-viewer>
   </div>
 </template>
 
@@ -78,14 +81,22 @@ export default class ShowCase extends mixins(showoffCarousel, consoleMixin) {
   )
   private projectsArray!: object[]
 
-  private onProject:Object=this.projectsArray[0]
-
-
-
-
-
+  private onProject:object=this.projectsArray[0]
   
   private projectsArrayCopy:object[]=this.projectsArray
+
+  /*Viewer*/
+  private viewerStatus=false
+
+  isViewerOpen(status:boolean){
+    this.viewerStatus=status
+  }
+
+  // get isViewerOpen(){
+  //   return this.viewerStatus
+  // }
+
+
   name: string = 'ShowCase'
   get tinys() {
     return this.projectsArrayCopy
