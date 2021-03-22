@@ -27,7 +27,7 @@
     <div class="showoff flex flex-col w-full items-center">
       <div
         class="bigwrapper flex flex-row flex-wrap justify-center"
-        @click="isViewerOpen(true)"
+        @click="setIsOpen(true)"
       >
         <div
           v-for="(projectObject, x) in projectsArray"
@@ -55,7 +55,7 @@
       </p>
       <pre>{{ projectsArray[0] }}{{ isOpen }}</pre>
     </div>
-    <project-viewer :single-project="onProject" :is-viewer-open="isOpen"/>
+    <project-viewer :is-viewer-open="isOpen" :single-project="onProject"/>
   </div>
 </template>
 
@@ -92,10 +92,6 @@ export default class ShowCase extends Vue {
 
   private projectsArrayCopy: object[] = this.projectsArray
 
-  public changeIsOpen!: (status: boolean) => void
-
-  setIsOpen = (state: boolean) => this.changeIsOpen(state)
-
   get biggies() {
     return 0 // this.projectsArrayCopy.splice(0, this.projectsArray.length * 0.7)
   }
@@ -109,6 +105,14 @@ export default class ShowCase extends Vue {
   @Emit()
   private test() {
     console.log(`test -> ${ModalViewerState.isOpen}`)
+  }
+
+  get isOpen(): boolean {
+    return ModalViewerState.isOpen
+  }
+
+  setIsOpen(state: boolean) {
+    ModalViewerState.setIsOpen(state)
   }
 }
 </script>
