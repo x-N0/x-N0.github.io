@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ 'animate-pulse': !isDataLoaded }"
+    :class="{ 'animate-pulse': !isDataLoaded }" @click="setIsOpen(true)"
     class="group Showoff big-card flex flex-col bg-gray-300 justify-between w-64 h-64 rounded-lg mx-5 mb-10 hover:bg-gray-200"
   >
     <!--    <span-->
@@ -110,6 +110,7 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import ModalViewerStore from '~/store/modules/ModalViewer'
 
 interface IDataObject {
   media: []
@@ -139,6 +140,11 @@ export default class CardCarousel extends Vue {
   //     this.addEventListener()
   //   }
   // }
+  get isOpen() {
+    return ModalViewerStore.isOpen
+  }
+
+  setIsOpen = (state: boolean): void => ModalViewerStore.setIsOpen(state)
 
   get isDataLoaded() {
     return !!this.dataObject.media
