@@ -25,11 +25,11 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  /*Content module config */
-  content:{
-    fullTextSearchFields: ['name']
+  /* Content module config */
+  content: {
+    fullTextSearchFields: ['name'],
   },
-  
+
   /*
    ** Global CSS
    */

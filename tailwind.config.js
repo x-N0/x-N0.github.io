@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin')
+// const plugin = require('tailwindcss/plugin')
 // Sepia Mode Thanks To: https://github.com/jnd0/tailwindcss-sepia-mode
 module.exports = {
   theme: {
