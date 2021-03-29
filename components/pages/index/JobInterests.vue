@@ -1,7 +1,7 @@
 <template>
   <section class="workdetails flex flex-col items-center text-center py-10">
     <h1 class="p-2 bg-blue-500 rounded-full">Job Interests</h1>
-    <div class="w-1 bg-gray-600 h-2"></div>
+    <div class="w-1 bg-gray-600 h-2"/>
     <ul
       class="flex flex-row justify-center rounded-lg bg-gray-50 p-10 flex-wrap w-6/12 bg-black bg-opacity-25"
     >

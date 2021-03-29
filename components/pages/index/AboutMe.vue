@@ -52,7 +52,6 @@ export default {
   name: 'AboutMe',
 }
 </script>
-
 <style>
 .line::after {
   position: relative;

@@ -5,7 +5,7 @@
     class="flex flex-col justify-center fixed inset-0 w-full max-h-full bg-opacity-50 bg-black z-10"
   >
     <div
-      class="absolute h-full w-full -z-10 bg-red-700"
+      class="absolute h-full w-full -z-10"
       @click="setIsOpen(false)"
     />
     <!--suppress HtmlUnknownTag -->
@@ -130,6 +130,21 @@ export default class ProjectViewer extends Vue {
   }
 
   setIsOpen = (state: boolean) => ModalViewerStatus.setIsOpen(state)
+
+  created() {
+    this.enrouteModal()
+  }
+
+  // @Watch('route')
+  // routeWarcher=this.$route(from, to)=> this.enrouteModal();
+  //
+  enrouteModal() {
+    if (this.$route.params.modal) {
+      console.log('Modal')
+    } else {
+      console.log('NoModal')
+    }
+  }
 }
 </script>
 

@@ -2,11 +2,7 @@
   <div
     class="col-md-6 col-sm-6 col-xs-12 wow fadeInUp"
     data-wow-delay="0.3s"
-    style="
-      visibility: visible;
-      animation-delay: 0.3s;
-      animation-name: fadeInUp;
-    "
+    style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp"
   >
     <div
       class="service_single_item service_single_item"
@@ -28,12 +24,14 @@
             rgb(35, 126, 253) 100%
           );
         "
-      ></div>
+      />
       <div class="service_item_inner">
         <div class="service_icon">
-          <img :src="cardObj.icon" alt="Icon" class="img-responsive" />
+          <img :src="cardObj.icon" alt="Icon" class="img-responsive">
         </div>
-        <h4 class="service_title">{{ cardObj.title }}</h4>
+        <h4 class="service_title">
+          {{ cardObj.title }}
+        </h4>
         <p class="service_details">
           {{ cardObj.description }}
         </p>

@@ -22,23 +22,26 @@
           <nuxt-link
             to="#Header"
             class="block mt-4 lg:inline-block lg:mt-0 transparent hover:text-yellow-400 dark-hover:text-yellow-400 mr-4"
-            >Home</nuxt-link
           >
+            Home
+          </nuxt-link>
           <nuxt-link
             class="block mt-4 lg:inline-block lg:mt-0 transparent hover:text-yellow-400 dark-hover:text-yellow-400 mr-4"
             to="#Contact"
-            >Contact</nuxt-link
           >
+            Contact
+          </nuxt-link>
           <nuxt-link
             class="block mt-4 lg:inline-block lg:mt-0 transparent hover:text-yellow-400 dark-hover:text-yellow-400 mr-4"
             to="#Contact"
-            >Blog</nuxt-link
           >
+            Blog
+          </nuxt-link>
         </div>
         <div class="items-center">
-          <nuxt-link class="btn btn-yellow" to="#C">Hire Me</nuxt-link>
+          <nuxt-link class="btn btn-yellow" to="#C"> Hire Me</nuxt-link>
         </div>
-      <select-color-mode class="ml-12"></select-color-mode>
+        <select-color-mode class="ml-12"/>
       </div>
     </div>
     <div class="lg:hidden">
@@ -77,7 +80,7 @@
         class="mt-1 block px-2 py-1 text-white font-semibold rounded hover:bg-gray-800"
         >Messages</a
       >
-      <select-color-mode class="center-self"></select-color-mode>
+      <select-color-mode class="center-self"/>
     </div>
   </nav>
 </template>

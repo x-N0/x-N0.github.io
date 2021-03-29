@@ -22,7 +22,7 @@
           class="rounded-lg md:w-5/12 w-8/12 mb-5 mx-10 h-64"
           :card-obj="card"
           :class="card.color"
-        ></card-short>
+        />
       </div>
     </div>
   </div>
@@ -66,6 +66,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

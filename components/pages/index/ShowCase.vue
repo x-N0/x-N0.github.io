@@ -27,7 +27,6 @@
     <div class="showoff flex flex-col w-full items-center">
       <div
         class="bigwrapper flex flex-row flex-wrap justify-center"
-        @click="setIsOpen(true)"
       >
         <div
           v-for="(projectObject, x) in projectsArray"

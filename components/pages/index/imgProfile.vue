@@ -1,9 +1,9 @@
 <template>
   <div class="img_sprites">
-    <i class="sprite mask"></i>
-    <i class="sprite bowl"></i>
-    <i class="sprite icons"></i>
-    <i class="sprite subject"></i>
+    <i class="sprite mask"/>
+    <i class="sprite bowl"/>
+    <i class="sprite icons"/>
+    <i class="sprite subject"/>
   </div>
 </template>
 

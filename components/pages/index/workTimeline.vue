@@ -1,8 +1,8 @@
 <template>
   <div class="work_timeline">
     <h1><b>I worked for...</b></h1>
-  </div></template
->
+  </div>
+</template>
 
 <script>
 export default {
