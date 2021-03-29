@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white dark:bg-gray-800">
-    <Navbar class="hidden"></Navbar>
+    <Navbar class="hidden" />
     <div class="wrapper mx-auto">
       <Nuxt />
     </div>

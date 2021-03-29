@@ -1,17 +1,17 @@
 <template>
   <div>
-    <indexHeader></indexHeader>
-    <about-me></about-me>
-    <TrustedBy></TrustedBy>
-    <show-case :projectsArray="projectsArray"></show-case>
-    <TimelineMidStraight></TimelineMidStraight>
+    <indexHeader />
+    <about-me />
+    <TrustedBy />
+    <show-case :projects-array="this.$data.projectsArray" />
+    <TimelineMidStraight />
     <!--    <my-services></my-services>-->
     <!--    <contact-me></contact-me>-->
   </div>
 </template>
 
 <script lang="ts">
-import { Vue } from 'nuxt-property-decorator'
+import { Vue, Watch } from 'nuxt-property-decorator'
 import indexHeader from '~/components/pages/index/indexHeader.vue'
 import AboutMe from '~/components/pages/index/AboutMe.vue'
 import ShowCase from '~/components/pages/index/ShowCase.vue'
@@ -19,6 +19,7 @@ import ShowCase from '~/components/pages/index/ShowCase.vue'
 // import MyServices from '~/components/pages/index/myServices.vue'
 import TrustedBy from '~/components/pages/index/TrustedBy.vue'
 import TimelineMidStraight from '~/components/pages/index/TimelineMidStraight.vue'
+import get = Reflect.get
 export default Vue.extend({
   components: {
     TimelineMidStraight,
@@ -35,7 +36,11 @@ export default Vue.extend({
       .fetch()
     return {
       projectsArray: projectsData,
-    }}
+    }
+  },
+
+
+
 })
 </script>
 

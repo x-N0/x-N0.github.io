@@ -1,13 +1,11 @@
 <template>
-$END$
+  <div />
 </template>
 
 <script>
 export default {
-name: "_slug.vue"
+  name: 'SlugVue',
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
