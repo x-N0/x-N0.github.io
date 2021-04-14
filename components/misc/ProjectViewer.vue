@@ -50,16 +50,16 @@
         class="w-full h-full overflow-y-auto overflow-x-hidden max-h-80 lg:w-8/12"
       >
         <div class="text-right">
-          <button @click="setIsOpen(false)">X</button>
+          <button @click='setIsOpenStatus(false)'>X</button>
         </div>
         <div class="title-right ml-10 lg:ml-5 mb-2 w-full">
           <h1
             class="title-right md:pt-4 font-medium relative md:text-3xl lg:text-2xl text-2xl text-verde-100 w-full1 bg-opacity-30"
           >
-            Desarrollo de Aplicaciones
+            {{ currentProject.type }}
           </h1>
           <h2 class="text-md -right-14 relative text-amarelo-300 font-semibold">
-            Aplicación web colaborativa
+            {{ currentProject.name }}
           </h2>
         </div>
         <div
@@ -70,11 +70,7 @@
           >
             <h4 class="font-bold">Contexto</h4>
             <p class="text-md lg:text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque nunc, at vestibulum libero ultrices nisl. Libero,
-              ullamcorper morbi sagittis et id turpis volutpat sit maecenas.
-              Orci erat sed porta justo tempor tristique amet erat viverra.
-              Mollis diam pharetra, sit adipiscing pharetra.
+              {{ currentProject.description }}
             </p>
           </div>
         </div>
@@ -84,18 +80,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
 import CardCarousel from '../pages/index/atoms/CardCarousel.vue'
 import ModalViewerStatus from '~/store/modules/ModalViewer.ts'
+import ModalViewer from '~/store/modules/ModalViewer.ts'
 
 interface ISingleProject {
   media: [string]
 }
 
 @Component({
-  components: { CardCarousel }
+  components: { CardCarousel },
+  watchQuery: true
 })
 export default class ProjectViewer extends Vue {
+  // TODO: Since img processing will need to do entire rebuild, maybe its better to use external urlimages: https://www.imgix.com/
   // Basic data.
   pName!: string
   pDate!: Date
@@ -129,20 +128,46 @@ export default class ProjectViewer extends Vue {
     return ModalViewerStatus.isOpen
   }
 
-  setIsOpen = (state: boolean) => ModalViewerStatus.setIsOpen(state)
-
-  created() {
-    this.enrouteModal()
+  get currentProject() {
+    return ModalViewerStatus.currentProject
   }
 
-  // @Watch('route')
-  // routeWarcher=this.$route(from, to)=> this.enrouteModal();
-  //
-  enrouteModal() {
-    if (this.$route.params.modal) {
-      console.log('Modal')
-    } else {
-      console.log('NoModal')
+  get currentProjectQuery() {
+    return this.$route.query.project
+  }
+
+  setIsOpenStatus = (state: boolean) => ModalViewerStatus.setIsOpen(state)
+
+  created() {
+    this.setCurrentProject()
+  }
+
+  mounted() {
+    if (this.$route.query.project) {
+      this.setIsOpenStatus(true)
+    }
+  }
+
+  @Watch('isOpen')
+  onIsOpenChange() {
+    if (!this.isOpen) {
+      // Closed set path to /
+      this.$router.replace(this.$route.path)
+    }
+  }
+
+  @Watch('currentProjectQuery')
+  oncurrentProjectQueryChange() {
+    if (this.currentProjectQuery) {
+      this.setCurrentProject()
+    }
+  }
+
+  setCurrentProject() {
+    if (this.currentProjectQuery) {
+      const slug = `/projects/${this.currentProjectQuery}`
+      ModalViewerStatus.setCurrentProject(slug)
+      console.log(ModalViewer.currentProject)
     }
   }
 }
