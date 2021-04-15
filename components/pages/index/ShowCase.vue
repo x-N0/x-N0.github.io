@@ -14,26 +14,24 @@
       >
         This is just the finest selection from my
         <a
-          href="https://github.com/x-N0"
-          target="_blank"
-          class="underline hover:text-blue-300"
-          >Github</a
-        >
+          href='https://github.com/x-N0'
+          target='_blank'
+          class='underline hover:text-blue-300'
+        >Github</a>
         (and others) for you to see some of my skillset hands on real projects
         from the real world.
       </p>
       <!-- <pre>{{ projectsArray }}</pre> -->
     </div>
     <div class="showoff flex flex-col w-full items-center">
-      <div
-        class="bigwrapper flex flex-row flex-wrap justify-center"
-      >
+      <div class='bigwrapper flex flex-row flex-wrap justify-center'>
         <div
-          v-for="(projectObject, x) in projectsArray"
-          :key="x"
-          class="carrouselwrap"
+          v-for='(projectObject, x) in projectsArray'
+          :key='x'
+          class='carrouselwrap'
+          @click='updateNavToProject(projectObject.path)'
         >
-          <CardCarousel :data-object="projectObject"/>
+          <CardCarousel :data-object='projectObject' />
         </div>
       </div>
       <!-- <div
@@ -50,11 +48,11 @@
       <p
         class="text-sm text-center font-sans font-semibold text-gray-600 mb-10 mx-10"
       >
-        Expect more to come, right now I'm developing Artificial Intelligence >)
+        Expect more to come, right now I'm developing Artificial Intelligence
+        >:)
       </p>
-      <pre>{{ projectsArray[0] }}{{ isOpen }}</pre>
     </div>
-    <project-viewer :is-viewer-open="isOpen" :single-project="onProject"/>
+    <project-viewer :is-viewer-open='isOpen' :single-project='onProject' />
   </div>
 </template>
 
@@ -62,7 +60,7 @@
 import 'vue-slick-carousel/dist/vue-slick-carousel.css'
 // optional style for arrows & dots
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
-import { Component, Emit, Prop, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 import CardCarousel from './atoms/CardCarousel.vue'
 import CardPizzaBox from './atoms/CardPizzaBox.vue'
 import ProjectViewer from '~/components/misc/ProjectViewer.vue'
@@ -96,14 +94,8 @@ export default class ShowCase extends Vue {
   }
 
   get isMinShowed() {
-    this.test()
     const minimum = 9
     return this.projectsArray.length > minimum
-  }
-
-  @Emit()
-  private test() {
-    console.log(`test -> ${ModalViewerState.isOpen}`)
   }
 
   get isOpen(): boolean {
@@ -112,6 +104,16 @@ export default class ShowCase extends Vue {
 
   setIsOpen(state: boolean) {
     ModalViewerState.setIsOpen(state)
+  }
+
+  updateNavToProject(projectPath: string) {
+    if (window) {
+      projectPath = projectPath
+        .slice(projectPath.lastIndexOf('/') + 1)
+        .replace(/\//g, '=')
+
+      this.$router.replace({ query: { project: projectPath } })
+    }
   }
 }
 </script>
