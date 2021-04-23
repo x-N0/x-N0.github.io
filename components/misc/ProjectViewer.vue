@@ -49,8 +49,14 @@
       <div
         class="w-full h-full overflow-y-auto overflow-x-hidden max-h-80 lg:w-8/12"
       >
-        <div class="text-right">
-          <button @click='setIsOpenStatus(false)'>X</button>
+        <div class="text-right m-auto">
+          <button type="button" class="bg-white mr-5 mt-5 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+            <span class="sr-only">Close menu</span>
+            <!-- Heroicon name: outline/x -->
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
         </div>
         <div class="title-right ml-10 lg:ml-5 mb-2 w-full">
           <h1
@@ -83,7 +89,6 @@
 import { Component, Prop, Vue, Watch } from 'nuxt-property-decorator'
 import CardCarousel from '../pages/index/atoms/CardCarousel.vue'
 import ModalViewerStatus from '~/store/modules/ModalViewer.ts'
-import ModalViewer from '~/store/modules/ModalViewer.ts'
 
 interface ISingleProject {
   media: [string]
@@ -167,7 +172,6 @@ export default class ProjectViewer extends Vue {
     if (this.currentProjectQuery) {
       const slug = `/projects/${this.currentProjectQuery}`
       ModalViewerStatus.setCurrentProject(slug)
-      console.log(ModalViewer.currentProject)
     }
   }
 }
@@ -200,4 +204,23 @@ export default class ProjectViewer extends Vue {
   width: 600px
 }
 } */
+
+div > img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+.img-wrapper {
+  width: 700px;
+  height: 450px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+}
+
 </style>
